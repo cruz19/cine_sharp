@@ -26,13 +26,13 @@ namespace Models
 
         }
 
-        public User(int id,String name,String nickname,String password,String fechaNac)
+        public User(List<String> request)
         {
-            this.id = id;
-            this.name = name;
-            this.nickname = nickname;
-            this.password = password;
-            this.fechaNac = fechaNac;
+            name = request.ElementAt(0);
+            nickname = request.ElementAt(1);
+            password = request.ElementAt(2);
+            fechaNac = obtenerFechaActual();
+           
         }
 
         //Methods base de datos
@@ -45,6 +45,12 @@ namespace Models
             query.ExecuteNonQuery();
             MessageBox.Show("Usuario registrado exitosamente");
 
+        }
+
+        public String obtenerFechaActual()
+        {
+            DateTime fecha = DateTime.Today;
+            return fecha.ToString("yyyy-MM-dd");
         }
 
             //Busqueda de usuarios

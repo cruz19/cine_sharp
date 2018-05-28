@@ -40,7 +40,9 @@
             this.btnSearchImage = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnAddPelicula = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -130,9 +132,9 @@
             // 
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.LightGray;
-            this.label2.Location = new System.Drawing.Point(58, 318);
+            this.label2.Location = new System.Drawing.Point(57, 295);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(343, 23);
+            this.label2.Size = new System.Drawing.Size(299, 23);
             this.label2.TabIndex = 5;
             this.label2.Text = "Selecciona una imagen para la película";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -148,9 +150,9 @@
             this.btnSearchImage.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.btnSearchImage.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchImage.Image")));
             this.btnSearchImage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearchImage.Location = new System.Drawing.Point(407, 318);
+            this.btnSearchImage.Location = new System.Drawing.Point(398, 295);
             this.btnSearchImage.Name = "btnSearchImage";
-            this.btnSearchImage.Size = new System.Drawing.Size(95, 23);
+            this.btnSearchImage.Size = new System.Drawing.Size(104, 23);
             this.btnSearchImage.TabIndex = 6;
             this.btnSearchImage.Text = "Search";
             this.btnSearchImage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -178,12 +180,22 @@
             this.btnAddPelicula.UseVisualStyleBackColor = false;
             this.btnAddPelicula.Click += new System.EventHandler(this.btnAddPelicula_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(398, 334);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(104, 58);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
             // agregarPelicula
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(581, 519);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSearchImage);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAddPelicula);
@@ -196,6 +208,7 @@
             this.Opacity = 0.9D;
             this.Text = "agregarPelicula";
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,5 +227,6 @@
         private System.Windows.Forms.Button btnSearchImage;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btnAddPelicula;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

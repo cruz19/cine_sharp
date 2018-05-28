@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Models;
 
 namespace Views
 {
@@ -61,9 +62,35 @@ namespace Views
         {
             if (!ruta_imagen.Equals("") && !txtNamePelicula.Text.Equals("") && !txtNamePelicula.Text.Equals("Nombre de la película",StringComparison.OrdinalIgnoreCase) && !txtDescripcionPeli.Text.Equals("") && !txtDescripcionPeli.Text.Equals("Descripción",StringComparison.OrdinalIgnoreCase))
             {
-                //Add pelicula
-                String name = txtNamePelicula.Text.Trim();
+                String name = txtNamePelicula.Text.Trim().ToLower();
                 String descripcion = txtDescripcionPeli.Text.Trim();
+                
+                if (!Pelicula.exists(name))
+                {
+
+                    List<String> request = new List<String>();
+                    request.Add(name);
+                    request.Add(descripcion);
+                    request.Add(ruta_imagen);
+
+                        //Crear y guardar nueva pelicula
+                    Pelicula pelicula = new Pelicula(request); 
+                    pelicula.save();
+
+                }
+                else
+                {
+                    MessageBox.Show("La pelicula ya existe en la base de datos");
+                }
+
+                    //Limpiar los TextBox y variable de la rutaImage
+                txtNamePelicula.Text = "Nombre de la película";
+                txtNamePelicula.ForeColor = Color.DimGray;
+                txtDescripcionPeli.Text = "Descripción";
+                txtDescripcionPeli.ForeColor = Color.DimGray;
+                //Vaciar ruta de la imagen seleccionada
+                ruta_imagen = "";
+                pictureBox1.Image = null;
 
 
             }
@@ -78,6 +105,7 @@ namespace Views
             if (openFileDialog1.ShowDialog() == DialogResult.OK) //Si selecciono alguna imagen
             {
                 ruta_imagen = openFileDialog1.FileName;
+                pictureBox1.Image = Image.FromFile(ruta_imagen);
                 ruta_imagen = ruta_imagen.Replace(@"\","/");
             }
             else

@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using System.Runtime.InteropServices;
 using System.Collections;
-using Controllers;
 using Models;
 
 namespace Views
@@ -20,13 +19,14 @@ namespace Views
         public FormLogin()
         {
             InitializeComponent();
-            /*                                         Solo estamos usando el login pero esta seria la manera de crear usuarios
+            /*                                    Solo estamos usando el login pero esta seria la manera de crear usuarios
             List<String> request = new List<String>();
-            request.Add("Miguel");
-            request.Add("gantz19");
-            request.Add("01010");
+            request.Add("Luisa");
+            request.Add("luisa19");
+            request.Add("12345");
 
-            UserController.create(request);
+            User usuario = new User(request);
+            usuario.save();
              */
              
 
@@ -115,7 +115,7 @@ namespace Views
                     String password = txtPass.Text.Trim();
 
                     //Obtenemos el usuario con todos sus atributos
-                    User usuario = UserController.login(nickname, password);
+                    User usuario = User.find(nickname, password);
 
                     if (usuario != null) //Si NO esta vacio (si existe)
                     {
@@ -142,8 +142,10 @@ namespace Views
                     {
                         MessageBox.Show(null,"Las credenciales ingresadas NO existen en la base de datos","Message");
                         txtPass.Text = "CONTRASEÑA";
+                        txtPass.ForeColor = Color.DimGray;
                         txtPass.UseSystemPasswordChar = false;
                         txtUser.Text = "USUARIO";
+                        txtUser.ForeColor = Color.DimGray;
                     }
 
                 }

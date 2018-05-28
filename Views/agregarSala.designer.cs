@@ -34,10 +34,10 @@
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.btnAddSala = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.spAsientos = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spAsientos)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -114,28 +114,28 @@
             this.btnAddSala.UseVisualStyleBackColor = false;
             this.btnAddSala.Click += new System.EventHandler(this.btnAddSala_Click);
             // 
-            // numericUpDown1
+            // spAsientos
             // 
-            this.numericUpDown1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(38)))));
-            this.numericUpDown1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.numericUpDown1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.ForeColor = System.Drawing.Color.LightGray;
-            this.numericUpDown1.Location = new System.Drawing.Point(359, 286);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.spAsientos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(38)))));
+            this.spAsientos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.spAsientos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.spAsientos.ForeColor = System.Drawing.Color.LightGray;
+            this.spAsientos.Location = new System.Drawing.Point(359, 286);
+            this.spAsientos.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
+            this.spAsientos.Minimum = new decimal(new int[] {
+            10,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(51, 23);
-            this.numericUpDown1.TabIndex = 7;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
+            this.spAsientos.Name = "spAsientos";
+            this.spAsientos.Size = new System.Drawing.Size(51, 23);
+            this.spAsientos.TabIndex = 7;
+            this.spAsientos.Value = new decimal(new int[] {
+            10,
             0,
             0,
             0});
@@ -158,7 +158,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(581, 519);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.spAsientos);
             this.Controls.Add(this.btnAddSala);
             this.Controls.Add(this.txtNameSala);
             this.Controls.Add(this.panel1);
@@ -168,7 +168,7 @@
             this.Opacity = 0.9D;
             this.Text = "agregarSala";
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spAsientos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,7 +182,7 @@
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private System.Windows.Forms.Button btnAddSala;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown spAsientos;
         private System.Windows.Forms.Label label2;
     }
 }

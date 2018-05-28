@@ -4,3 +4,9 @@ C:\Users\user\Desktop\Sin3Capas\Models\bin\Debug\MySql.Data.DLL
 C:\Users\user\Desktop\Sin3Capas\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
 C:\Users\user\Desktop\Sin3Capas\Models\obj\Debug\Models.dll
 C:\Users\user\Desktop\Sin3Capas\Models\obj\Debug\Models.pdb
+C:\Users\user\Desktop\Cine\Models\bin\Debug\Models.dll
+C:\Users\user\Desktop\Cine\Models\bin\Debug\Models.pdb
+C:\Users\user\Desktop\Cine\Models\bin\Debug\MySql.Data.DLL
+C:\Users\user\Desktop\Cine\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Cine\Models\obj\Debug\Models.dll
+C:\Users\user\Desktop\Cine\Models\obj\Debug\Models.pdb

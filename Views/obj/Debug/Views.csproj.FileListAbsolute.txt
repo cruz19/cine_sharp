@@ -21,10 +21,8 @@ C:\Users\user\Desktop\Cine\Views\obj\Debug\CapaPresentacion.exe
 C:\Users\user\Desktop\Cine\Views\obj\Debug\CapaPresentacion.pdb
 C:\Users\user\Desktop\Cine\Views\bin\Debug\CapaPresentacion.exe
 C:\Users\user\Desktop\Cine\Views\bin\Debug\CapaPresentacion.pdb
-C:\Users\user\Desktop\Cine\Views\bin\Debug\Controllers.dll
 C:\Users\user\Desktop\Cine\Views\bin\Debug\Models.dll
 C:\Users\user\Desktop\Cine\Views\bin\Debug\MySql.Data.dll
-C:\Users\user\Desktop\Cine\Views\bin\Debug\Controllers.pdb
 C:\Users\user\Desktop\Cine\Views\bin\Debug\Models.pdb
 C:\Users\user\Desktop\Cine\Views\obj\Debug\Views.csprojResolveAssemblyReference.cache
 C:\Users\user\Desktop\Cine\Views\obj\Debug\Views.Administrador.resources

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Models;
 
 namespace Views
 {
@@ -38,8 +39,43 @@ namespace Views
         private void btnAddSala_Click(object sender, EventArgs e)
         {
             if (!txtNameSala.Text.Equals("") && !txtNameSala.Text.Equals("Nombre de la sala", StringComparison.OrdinalIgnoreCase))
-            {   
-                //Add sala
+            {
+
+                if (spAsientos.Value > 9)
+                {
+
+                    String name = txtNameSala.Text.Trim().ToLower();
+
+                    if (!Sala.exists(name))
+                    {
+
+                        int num_asientos = Convert.ToInt32(spAsientos.Value);
+
+                        List<String> request = new List<string>();
+                        request.Add(name);
+                        request.Add(num_asientos.ToString());
+
+                        //Crear y guardar sala
+                        Sala sala = new Sala(request);
+                        sala.save();
+                    }
+                    else
+                    {
+                        MessageBox.Show("La sala ya existe en la base de datos");
+                    }
+
+                    txtNameSala.Text = "Nombre de la sala";
+                    txtNameSala.ForeColor = Color.DimGray;
+                    spAsientos.Value = 10;
+
+
+                }
+                else
+                {
+                    MessageBox.Show("La sala debe contener minimo 10 asientos");
+                }
+
+
             }
             else
             {
