@@ -47,7 +47,7 @@ namespace Models
 
         }
 
-        public String obtenerFechaActual()
+        private String obtenerFechaActual()
         {
             DateTime fecha = DateTime.Today;
             return fecha.ToString("yyyy-MM-dd");
@@ -57,23 +57,26 @@ namespace Models
         public static User find(String search_nick,String search_pass)
         {
             String consulta = String.Format("SELECT * FROM USUARIOS WHERE NICKNAME='{0}' AND PASSWORD='{1}'", search_nick, search_pass);
-            query = new MySqlCommand(consulta , Conexion.obtenerConexion() );
-            statement = query.ExecuteReader();
 
-            User usuario;
-            if (statement.HasRows) //Si el registro existe
+            User usuario = null; //El usuario encontrado
+            try
             {
-                usuario = new User();
-                statement.Read(); //Leer 
-                usuario.Id = statement.GetInt32(0);
-                usuario.Name = statement.GetString(1);
-                usuario.Nickname = statement.GetString(2);
-                usuario.Password = statement.GetString(3);
-                usuario.FechaNac = statement.GetString(4);
+                query = new MySqlCommand(consulta, Conexion.obtenerConexion());
+                statement = query.ExecuteReader();
+                if (statement.HasRows) //Si el registro existe
+                {
+                    usuario = new User();
+                    statement.Read(); //Leer 
+                    usuario.Id = statement.GetInt32(0);
+                    usuario.Name = statement.GetString(1);
+                    usuario.Nickname = statement.GetString(2);
+                    usuario.Password = statement.GetString(3);
+                    usuario.FechaNac = statement.GetString(4);
+                }
             }
-            else
+            catch (Exception e)
             {
-                usuario = null; //No existe en la base de datos
+                MessageBox.Show(e.Message,"Message");
             }
 
             return usuario;

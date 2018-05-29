@@ -32,3 +32,4 @@ C:\Users\user\Desktop\Cine\Views\obj\Debug\Views.agregarSala.resources
 C:\Users\user\Desktop\Cine\Views\obj\Debug\Views.FormLogin.resources
 C:\Users\user\Desktop\Cine\Views\obj\Debug\Views.Properties.Resources.resources
 C:\Users\user\Desktop\Cine\Views\obj\Debug\Views.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\Cine\Views\obj\Debug\Views.InfoPelicula.resources

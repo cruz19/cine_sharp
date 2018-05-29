@@ -37,6 +37,55 @@ namespace Models
 
             //Methods para la base de datos
 
+        public static List<Sala> all()
+        {
+            List<Sala> salas = new List<Sala>();
+
+            query = new MySqlCommand("SELECT * FROM SALAS" , Conexion.obtenerConexion());
+            statement = query.ExecuteReader();
+
+            while (statement.Read())
+            {
+                Sala sala = new Sala();
+                sala.Id = statement.GetInt32(0);
+                sala.Name = statement.GetString(1);
+                sala.Num_asientos = statement.GetInt32(2);
+                sala.Created = statement.GetString(3);
+
+                salas.Add(sala);
+            }
+
+            return salas;
+        }
+
+        public static Sala find(String name_sala)
+        {
+
+            Sala sala = new Sala();
+
+            try
+            {
+                query = new MySqlCommand(String.Format("SELECT * FROM SALAS WHERE NAME='{0}'",name_sala) , Conexion.obtenerConexion());
+                statement = query.ExecuteReader();
+
+                statement.Read(); //Leer registro de resultado de la query
+
+                sala.Id = statement.GetInt32(0);
+                sala.Name = statement.GetString(1);
+                sala.Num_asientos = statement.GetInt32(2);
+                sala.Created = statement.GetString(3);
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+
+            return sala; //Retornar el objeto sala con todos sus atributos
+
+        }
+
         public void save()
         {
             String consulta = String.Format("INSERT INTO SALAS(NAME,NUM_ASIENTOS,CREATED) VALUES('{0}',{1},'{2}')", name, num_asientos, created);
@@ -73,7 +122,7 @@ namespace Models
 
 
 
-        public String obtenerFechaActual()
+        private String obtenerFechaActual()
         {
             DateTime fecha = DateTime.Today;
             return fecha.ToString("yyyy-MM-dd");

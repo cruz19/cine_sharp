@@ -35,6 +35,67 @@ namespace Models
         }
 
         //Methods para la base de datos
+
+        public static List<Pelicula> all() //Obtener todas las peliculas existenetes en la base de datos
+        {
+            List<Pelicula> peliculas = new List<Pelicula>();
+
+            try
+            {
+                query = new MySqlCommand("SELECT * FROM PELICULAS", Conexion.obtenerConexion());
+                statement = query.ExecuteReader();
+
+                while (statement.Read())
+                {
+                    Pelicula pelicula = new Pelicula();
+                    pelicula.Id = statement.GetInt32(0);
+                    pelicula.Name = statement.GetString(1);
+                    pelicula.Descripcion = statement.GetString(2);
+                    pelicula.Image = statement.GetString(3);
+                    pelicula.Created = statement.GetString(4);
+
+                    peliculas.Add(pelicula);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+            return peliculas;
+
+        }
+
+        public static Pelicula find(String search_pelicula)
+        {
+
+            Pelicula pelicula = new Pelicula();
+
+            try
+            {
+
+                query = new MySqlCommand(String.Format("SELECT * FROM PELICULAS WHERE NAME='{0}'",search_pelicula) , Conexion.obtenerConexion());
+                statement = query.ExecuteReader();
+                statement.Read();
+
+                //Crear nuevo objeto de tipo Pelicula
+                pelicula.Id = statement.GetInt32(0);
+                pelicula.Name = statement.GetString(1);
+                pelicula.Descripcion = statement.GetString(2);
+                pelicula.Image = statement.GetString(3);
+                pelicula.Created = statement.GetString(4);
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+
+            return pelicula;
+
+        }
+
         public void save()
         {
             String consulta = String.Format("INSERT INTO PELICULAS(NAME,DESCRIPCION,RUTA_IMAGE,CREATED) VALUES ('{0}','{1}','{2}','{3}')",name,descripcion,image,created);
@@ -67,7 +128,7 @@ namespace Models
             return statement.HasRows ? true : false;
         }
 
-        public String obtenerFechaActual()
+        private String obtenerFechaActual()
         {
             DateTime fecha = DateTime.Today;
             return fecha.ToString("yyyy-MM-dd");
