@@ -8,8 +8,13 @@ using MySql.Data.MySqlClient;
 
 namespace Models
 {
-    class Conexion
+    public class Conexion
     {
+
+        public Conexion()
+        {
+
+        }
 
         public static MySqlConnection obtenerConexion()
         {

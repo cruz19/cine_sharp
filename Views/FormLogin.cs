@@ -124,17 +124,14 @@ namespace Views
                         {
                             this.Visible = false;
                             Administrador admin = new Administrador();
-                            MessageBox.Show(null,"Bienvenido administrador: "+usuario.Name,"Message");
+                            //MessageBox.Show(null,"Bienvenido administrador: "+usuario.Name,"Message");
                             admin.Visible = true;
                         }
                         else
                         {
-                            
-                            MessageBox.Show("Hola usuario "+usuario.Name);
-
-                            //return vista de usuarios o sea la taquilla
-
-
+                            this.Visible = false;
+                            FormTaquilla formTaquilla = new FormTaquilla(); //enviar un Usuario para los datos de compra (Opcional)
+                            formTaquilla.Visible = true;
                         }
 
                     }

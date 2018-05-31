@@ -33,6 +33,7 @@
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnCerarSesionAdmin = new System.Windows.Forms.PictureBox();
             this.panelFunciones = new System.Windows.Forms.Panel();
             this.btnAddFunciones = new System.Windows.Forms.Button();
             this.btnVerFunciones = new System.Windows.Forms.Button();
@@ -47,16 +48,15 @@
             this.btnPeliculas = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
-            this.btnCerarSesionAdmin = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.panelMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerarSesionAdmin)).BeginInit();
             this.panelFunciones.SuspendLayout();
             this.panelSalas.SuspendLayout();
             this.panelPeliculas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerarSesionAdmin)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -114,6 +114,18 @@
             this.panelMenu.TabIndex = 1;
             this.panelMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelMenu_MouseDown);
             // 
+            // btnCerarSesionAdmin
+            // 
+            this.btnCerarSesionAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerarSesionAdmin.Image = ((System.Drawing.Image)(resources.GetObject("btnCerarSesionAdmin.Image")));
+            this.btnCerarSesionAdmin.Location = new System.Drawing.Point(12, 480);
+            this.btnCerarSesionAdmin.Name = "btnCerarSesionAdmin";
+            this.btnCerarSesionAdmin.Size = new System.Drawing.Size(26, 27);
+            this.btnCerarSesionAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnCerarSesionAdmin.TabIndex = 0;
+            this.btnCerarSesionAdmin.TabStop = false;
+            this.btnCerarSesionAdmin.Click += new System.EventHandler(this.btnCerarSesionAdmin_Click);
+            // 
             // panelFunciones
             // 
             this.panelFunciones.Controls.Add(this.btnAddFunciones);
@@ -160,6 +172,7 @@
             this.btnVerFunciones.TabIndex = 4;
             this.btnVerFunciones.Text = "Ver funciones";
             this.btnVerFunciones.UseVisualStyleBackColor = false;
+            this.btnVerFunciones.Click += new System.EventHandler(this.btnVerFunciones_Click);
             // 
             // panelSalas
             // 
@@ -207,6 +220,7 @@
             this.btnVerSalas.TabIndex = 4;
             this.btnVerSalas.Text = "Ver salas";
             this.btnVerSalas.UseVisualStyleBackColor = false;
+            this.btnVerSalas.Click += new System.EventHandler(this.btnVerSalas_Click);
             // 
             // panelPeliculas
             // 
@@ -332,18 +346,6 @@
             this.panelContenedor.Size = new System.Drawing.Size(581, 519);
             this.panelContenedor.TabIndex = 2;
             // 
-            // btnCerarSesionAdmin
-            // 
-            this.btnCerarSesionAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerarSesionAdmin.Image = ((System.Drawing.Image)(resources.GetObject("btnCerarSesionAdmin.Image")));
-            this.btnCerarSesionAdmin.Location = new System.Drawing.Point(12, 480);
-            this.btnCerarSesionAdmin.Name = "btnCerarSesionAdmin";
-            this.btnCerarSesionAdmin.Size = new System.Drawing.Size(26, 27);
-            this.btnCerarSesionAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnCerarSesionAdmin.TabIndex = 0;
-            this.btnCerarSesionAdmin.TabStop = false;
-            this.btnCerarSesionAdmin.Click += new System.EventHandler(this.btnCerarSesionAdmin_Click);
-            // 
             // Administrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -364,11 +366,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.panelMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerarSesionAdmin)).EndInit();
             this.panelFunciones.ResumeLayout(false);
             this.panelSalas.ResumeLayout(false);
             this.panelPeliculas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerarSesionAdmin)).EndInit();
             this.ResumeLayout(false);
 
         }

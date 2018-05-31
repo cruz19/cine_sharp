@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using MySql.Data.MySqlClient;
+using Models;
 
 namespace Views
 {
@@ -98,7 +100,8 @@ namespace Views
 
         private void btnVerPeliculas_Click(object sender, EventArgs e)
         {
-            //changeForm();
+            String consulta = "SELECT * FROM PELICULAS";
+            changeForm(new VerResultados(consulta));
         }
 
         private void btnFunciones_Click(object sender, EventArgs e)
@@ -128,6 +131,18 @@ namespace Views
             MessageBox.Show("Hasta luego, Admin");
             FormLogin formLogin = new FormLogin();
             formLogin.Visible = true;
+        }
+
+        private void btnVerSalas_Click(object sender, EventArgs e)
+        {
+            String consulta = "SELECT * FROM SALAS";
+            changeForm(new VerResultados(consulta));
+        }
+
+        private void btnVerFunciones_Click(object sender, EventArgs e)
+        {
+            String consulta = "SELECT * FROM FUNCIONES";
+            changeForm(new VerResultados(consulta));
         }
     }
 }
