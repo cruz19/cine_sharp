@@ -8,15 +8,42 @@ namespace Models
 {
     public class Horario
     {
+        //Atributtes
         private int hora;
         private int minutos;
-        private String format;
 
-        public Horario(int hora,int minutos,String format)
+        //Constructores
+        public Horario(int hora,int minutos)
         {
             this.hora = hora;
             this.minutos = minutos;
-            this.format = format;
+        }
+
+        public Horario(String cadena_horario)
+        {
+            this.hora = Convert.ToInt32(cadena_horario.Substring(0, cadena_horario.IndexOf(":")));
+            cadena_horario = cadena_horario.Substring(cadena_horario.IndexOf(":")+1);
+            this.minutos = Convert.ToInt32(cadena_horario.Substring(0, cadena_horario.IndexOf(":")));
+
+        }
+
+        //------------------------------------------
+        public String getHorario()
+        {
+            return hora + ":" + minutos + ":00";
+        }
+
+        public static int[] obtenerHorarioFinal(int hora,int minutos,int duracion)
+        {
+
+            int minutos_totales = (hora * 60) + minutos + duracion;
+            int horas = minutos_totales/60!=24? minutos_totales/60 : 0;
+            horas = horas>24? horas-24 : horas; 
+
+            int[] hora_format = { (horas), (minutos_totales % 60) }; //horas[0] minutos[1]
+
+            return hora_format;
+
         }
 
 
@@ -30,11 +57,6 @@ namespace Models
         {
             set { minutos = value; }
             get { return minutos; }
-        }
-        public String Format
-        {
-            set { format = value; }
-            get { return format; }
         }
 
     }

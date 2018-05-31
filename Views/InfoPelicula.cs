@@ -29,6 +29,7 @@ namespace Views
             lblNombrePelicula.Text = capitalize(pelicula.Name);
             lblDescripcionPelicula.Text = capitalize(pelicula.Descripcion)+".";
             lblFechaPelicula.Text = pelicula.Created.Substring(0,pelicula.Created.IndexOf(" "));
+            lblDuracion.Text = pelicula.getFormatDuracion();
             imagePelicula.Image = Image.FromFile(pelicula.Image);
         }
 

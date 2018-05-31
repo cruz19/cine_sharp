@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 using Models;
 
 namespace Views
@@ -60,37 +61,49 @@ namespace Views
 
         private void btnAddPelicula_Click(object sender, EventArgs e)
         {
-            if (!ruta_imagen.Equals("") && !txtNamePelicula.Text.Equals("") && !txtNamePelicula.Text.Equals("Nombre de la película",StringComparison.OrdinalIgnoreCase) && !txtDescripcionPeli.Text.Equals("") && !txtDescripcionPeli.Text.Equals("Descripción",StringComparison.OrdinalIgnoreCase))
+            if (!ruta_imagen.Equals("") && !txtNamePelicula.Text.Equals("") && !txtNamePelicula.Text.Equals("Nombre de la película",StringComparison.OrdinalIgnoreCase) && !txtDescripcionPeli.Text.Equals("") && !txtDescripcionPeli.Text.Equals("Descripción",StringComparison.OrdinalIgnoreCase) && !txtDuracion.Text.Equals("") && !txtDuracion.Text.Equals("Duración de la película",StringComparison.OrdinalIgnoreCase))
             {
                 String name = txtNamePelicula.Text.Trim().ToLower();
                 String descripcion = txtDescripcionPeli.Text.Trim();
-                
-                if (!Pelicula.exists(name))
-                {
+                int duracion = Convert.ToInt32(txtDuracion.Text);
 
-                    List<String> request = new List<String>();
-                    request.Add(name);
-                    request.Add(descripcion);
-                    request.Add(ruta_imagen);
+                if (duracion <= 150 && duracion >= 60)
+                {
+                    if (!Pelicula.exists(name))
+                    {
+
+                        List<String> request = new List<String>();
+                        request.Add(name);
+                        request.Add(descripcion);
+                        request.Add(ruta_imagen);
+                        request.Add(duracion.ToString());
 
                         //Crear y guardar nueva pelicula
-                    Pelicula pelicula = new Pelicula(request); 
-                    pelicula.save();
+                        Pelicula pelicula = new Pelicula(request);
+                        pelicula.save();
 
+                    }
+                    else
+                    {
+                        MessageBox.Show("La pelicula ya existe en la base de datos");
+                    }
+
+                    //Limpiar los TextBox y variable de la rutaImage
+                    txtNamePelicula.Text = "Nombre de la película";
+                    txtNamePelicula.ForeColor = Color.DimGray;
+                    txtDescripcionPeli.Text = "Descripción";
+                    txtDescripcionPeli.ForeColor = Color.DimGray;
+                    txtDuracion.Text = "Duración de la película";
+                    txtDuracion.ForeColor = Color.DimGray;
+                    //Vaciar ruta de la imagen seleccionada
+                    ruta_imagen = "";
+                    pictureBox1.Image = null;
                 }
                 else
                 {
-                    MessageBox.Show("La pelicula ya existe en la base de datos");
+                    MessageBox.Show("La duración de la película es demasiado larga o demasiado corta (Rango=> 60 minutos Limite 150 minutos)");
+                    txtDuracion.Text = "";
                 }
-
-                    //Limpiar los TextBox y variable de la rutaImage
-                txtNamePelicula.Text = "Nombre de la película";
-                txtNamePelicula.ForeColor = Color.DimGray;
-                txtDescripcionPeli.Text = "Descripción";
-                txtDescripcionPeli.ForeColor = Color.DimGray;
-                //Vaciar ruta de la imagen seleccionada
-                ruta_imagen = "";
-                pictureBox1.Image = null;
 
 
             }
@@ -113,5 +126,59 @@ namespace Views
                 MessageBox.Show("No seleccionasta ninguna imagen");
             }
         }
+
+        private void txtDuracion_Enter(object sender, EventArgs e)
+        {
+            if (txtDuracion.Text.Equals("Duración de la película",StringComparison.OrdinalIgnoreCase))
+            {
+                txtDuracion.Text = "";
+                txtDuracion.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void txtDuracion_Leave(object sender, EventArgs e)
+        {
+            if (txtDuracion.Text.Equals(""))
+            {
+                txtDuracion.Text = "Duración de la película";
+                txtDuracion.ForeColor = Color.DimGray;
+            }
+        }
+
+        private void txtDuracion_KeyUp(object sender, KeyEventArgs e)
+        {
+            String val_pulsado = e.KeyCode.ToString();
+
+            Regex regex = new Regex("[0-9]");
+            Match match = regex.Match(val_pulsado);
+
+            if (!match.Success && e.KeyCode!=Keys.Back)
+            {
+                MessageBox.Show("La duración es un valor númerico");
+                txtDuracion.Text = "";
+            }
+        }
+
+
+        /*
+        private void txtDuracion_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            String val_pulsado = e.KeyCode.ToString();
+           
+            Regex regex = new Regex("[0-9]");
+            Match match = regex.Match(val_pulsado);
+
+            if (!match.Success)
+            {
+                MessageBox.Show("La duración es un valor númerico");
+            }
+
+        }
+         */
+
+
+
+
+
     }
 }

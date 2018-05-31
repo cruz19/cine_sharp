@@ -159,6 +159,53 @@ namespace Views
             changeSalas = true;
         }
 
+        private void btnAddPelicula_Click(object sender, EventArgs e)
+        {
+
+            String name_pelicula = cbPeliculasBD.Text.ToLower();
+
+            if (changePeliculas && Pelicula.exists(name_pelicula))
+            {
+
+                String name_sala = cbSalasBD.Text.ToLower();
+
+                if (changeSalas && Sala.exists(name_sala))
+                {
+
+
+                    Horario horario_inicio = new Horario(Convert.ToInt32(spHora.Value), Convert.ToInt32(spMinutos.Value));
+                    Pelicula pelicula = Pelicula.find(name_pelicula);
+                    Sala sala = Sala.find(name_sala);
+                    Funcion funcion = new Funcion(pelicula,horario_inicio,sala);
+
+                    if (funcion.avalible())
+                    {
+                        funcion.save();
+                    }
+                    else
+                    {
+                        MessageBox.Show("La sala estará trasmitiendo una función en el trascuros de este horario, ten en cuenta la duracion de esta película");
+                    }
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Para agregar la función debes seleccionar una sala existente");
+                    cbSalasBD.Text = "Salas";
+                }
+
+
+            }
+            else
+            {
+                MessageBox.Show("Para agregar la función debes seleccionar una película existente");
+                cbPeliculasBD.Text = "Películas";
+            }
+
+
+        }
+
 
 
     }

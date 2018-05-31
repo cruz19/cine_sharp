@@ -15,6 +15,7 @@ namespace Models
         private String name;
         private String descripcion;
         private String image;
+        private int duracion;
         private String created;
 
         //Conexion
@@ -31,7 +32,18 @@ namespace Models
             name = request.ElementAt(0);
             descripcion = request.ElementAt(1);
             image = request.ElementAt(2);
+            duracion = Convert.ToInt32(request.ElementAt(3));
             created = obtenerFechaActual();
+        }
+
+        public String getFormatDuracion()
+        {
+            int horas = (duracion / 60);
+            String cad_horas = horas <= 9 ? "0" + horas.ToString() : horas.ToString();
+            int minutos = (duracion % 60);
+            String cad_minutos = minutos <= 9 ? "0" + minutos.ToString() : minutos.ToString();
+
+            return cad_horas + ":" +cad_minutos;
         }
 
         //Methods para la base de datos
@@ -52,7 +64,8 @@ namespace Models
                     pelicula.Name = statement.GetString(1);
                     pelicula.Descripcion = statement.GetString(2);
                     pelicula.Image = statement.GetString(3);
-                    pelicula.Created = statement.GetString(4);
+                    pelicula.Duracion = statement.GetInt32(4);
+                    pelicula.Created = statement.GetString(5);
 
                     peliculas.Add(pelicula);
                 }
@@ -83,7 +96,8 @@ namespace Models
                 pelicula.Name = statement.GetString(1);
                 pelicula.Descripcion = statement.GetString(2);
                 pelicula.Image = statement.GetString(3);
-                pelicula.Created = statement.GetString(4);
+                pelicula.Duracion = statement.GetInt32(4);
+                pelicula.Created = statement.GetString(5);
 
             }
             catch (Exception e)
@@ -98,7 +112,7 @@ namespace Models
 
         public void save()
         {
-            String consulta = String.Format("INSERT INTO PELICULAS(NAME,DESCRIPCION,RUTA_IMAGE,CREATED) VALUES ('{0}','{1}','{2}','{3}')",name,descripcion,image,created);
+            String consulta = String.Format("INSERT INTO PELICULAS(NAME,DESCRIPCION,RUTA_IMAGE,DURACION,CREATED) VALUES ('{0}','{1}','{2}',{3},'{4}')",name,descripcion,image,duracion,created);
 
             try
             {
@@ -155,6 +169,11 @@ namespace Models
         {
             set { image = value; }
             get { return image; }
+        }
+        public int Duracion
+        {
+            set { duracion = value; }
+            get { return duracion; }
         }
         public String Created
         {

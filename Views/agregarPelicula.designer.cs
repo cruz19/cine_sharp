@@ -41,6 +41,8 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnAddPelicula = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtDuracion = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -172,7 +174,7 @@
             this.btnAddPelicula.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddPelicula.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddPelicula.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnAddPelicula.Location = new System.Drawing.Point(61, 412);
+            this.btnAddPelicula.Location = new System.Drawing.Point(60, 434);
             this.btnAddPelicula.Name = "btnAddPelicula";
             this.btnAddPelicula.Size = new System.Drawing.Size(442, 40);
             this.btnAddPelicula.TabIndex = 4;
@@ -189,12 +191,40 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // txtDuracion
+            // 
+            this.txtDuracion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(38)))));
+            this.txtDuracion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDuracion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDuracion.ForeColor = System.Drawing.Color.DimGray;
+            this.txtDuracion.Location = new System.Drawing.Point(61, 372);
+            this.txtDuracion.Name = "txtDuracion";
+            this.txtDuracion.Size = new System.Drawing.Size(210, 20);
+            this.txtDuracion.TabIndex = 9;
+            this.txtDuracion.Text = "Duración de la película";
+            this.txtDuracion.Enter += new System.EventHandler(this.txtDuracion_Enter);
+            this.txtDuracion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDuracion_KeyUp);
+            this.txtDuracion.Leave += new System.EventHandler(this.txtDuracion_Leave);
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.LightGray;
+            this.label3.Location = new System.Drawing.Point(274, 372);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 23);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Minutos";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // agregarPelicula
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(581, 519);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtDuracion);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSearchImage);
             this.Controls.Add(this.label2);
@@ -228,5 +258,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btnAddPelicula;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtDuracion;
+        private System.Windows.Forms.Label label3;
     }
 }

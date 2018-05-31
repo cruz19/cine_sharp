@@ -39,6 +39,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblFechaPelicula = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.lblDuracion = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.panel2.SuspendLayout();
@@ -160,12 +162,36 @@
             this.label6.TabIndex = 6;
             this.label6.Text = "Fecha de estreno";
             // 
+            // lblDuracion
+            // 
+            this.lblDuracion.AutoSize = true;
+            this.lblDuracion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDuracion.ForeColor = System.Drawing.Color.DimGray;
+            this.lblDuracion.Location = new System.Drawing.Point(310, 269);
+            this.lblDuracion.Name = "lblDuracion";
+            this.lblDuracion.Size = new System.Drawing.Size(64, 16);
+            this.lblDuracion.TabIndex = 9;
+            this.lblDuracion.Text = "--------------";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(130)))), ((int)(((byte)(115)))));
+            this.label3.Location = new System.Drawing.Point(238, 269);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(66, 16);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Duración";
+            // 
             // InfoPelicula
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(624, 294);
+            this.Controls.Add(this.lblDuracion);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lblFechaPelicula);
             this.Controls.Add(this.lblDescripcionPelicula);
             this.Controls.Add(this.label4);
@@ -200,5 +226,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblFechaPelicula;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblDuracion;
+        private System.Windows.Forms.Label label3;
     }
 }
